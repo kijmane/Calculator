@@ -1,4 +1,4 @@
-//Lv.3
+//Lv.3 + 계산기 히스토리 조회 기능 추가 (마지막 계산 결과 불러오기)
 package com.example.calculator;
 public enum OperatorType {
     ADD {

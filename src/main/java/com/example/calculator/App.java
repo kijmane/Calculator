@@ -44,6 +44,8 @@
 //        sc.close();
 //    }
 //}
+
+//Lv.3 + 계산기 히스토리 조회 기능 추가 (마지막 계산 결과 불러오기)
 package com.example.calculator;
 import java.util.Scanner;
 import java.util.List;

@@ -1,3 +1,4 @@
+//Lv.3 + 계산기 히스토리 조회 기능 추가 (마지막 계산 결과 불러오기)
 package com.example.calculator;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +12,10 @@ public class ArithmeticCalculator<T extends Number> {
         // 결과를 제네릭 타입으로 반환
         return (T) (Number) result;
     }
-
     // 연산 결과 저장
     public void storeResult(T result) {
         results.add(result);
     }
-
     // 결과 조회 (입력한 값보다 큰 결과만)
     public List<T> getResultsGreaterThan(double value) {
         List<T> filteredResults = new ArrayList<>();
@@ -27,7 +26,6 @@ public class ArithmeticCalculator<T extends Number> {
         }
         return filteredResults;
     }
-
     // 결과 삭제
     public void removeResult() {
         if (!results.isEmpty()) {
@@ -36,12 +34,10 @@ public class ArithmeticCalculator<T extends Number> {
             System.out.println("삭제할 결과가 없습니다.");
         }
     }
-
     // 저장된 결과 반환
     public List<T> getResults() {
         return new ArrayList<>(results);
     }
-
     //계산된 결과들을 출력하는 메서드 (히스토리 기능 구현)
     public void printHistory() {
         if(results.isEmpty()) {
