@@ -1,13 +1,15 @@
 // Lv.1
 package com.example.calculator;
+
 import java.util.Scanner;
+
 public class Calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("첫번째 숫자를 입력해주세요. (종료 시 exit를 입력해주세요.) : ");
             String input1 = sc.nextLine();
-            if(input1.equalsIgnoreCase("exit")){
+            if (input1.equalsIgnoreCase("exit")) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
@@ -15,7 +17,7 @@ public class Calculator {
 
             System.out.print("두번째 숫자를 입력해주세요. (종료 시 exit를 입력해주세요.) : ");
             String input2 = sc.nextLine();
-            if(input2.equalsIgnoreCase("exit")){
+            if (input2.equalsIgnoreCase("exit")) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
@@ -44,16 +46,16 @@ public class Calculator {
                         result = num1 / num2;
                     }
                     break;
-                    default:
-                        System.out.println("유효하지 않은 연산자입니다. 사칙 연산 기호를 입력해주세요. (+,-,*,/) : ");
-                        validOperation = false;
+                default:
+                    System.out.println("유효하지 않은 연산자입니다. 사칙 연산 기호를 입력해주세요. (+,-,*,/) : ");
+                    validOperation = false;
             }
-            if(validOperation){ // 만약 true 이면 연산 결과를 출력하라는 조건문
+            if (validOperation) { // 만약 true 이면 연산 결과를 출력하라는 조건문
                 System.out.println("결과 : " + result);
             }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String continueInput = sc.nextLine();
-            if (continueInput.equalsIgnoreCase("exit")){ // 대소문자를 구문할 수 있는 메서드
+            if (continueInput.equalsIgnoreCase("exit")) { // 대소문자를 구문할 수 있는 메서드
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
@@ -62,7 +64,7 @@ public class Calculator {
     }
 }
 
-////LV.2
+/// /LV.2
 //package com.example.calculator;
 //import java.util.ArrayList;
 //import java.util.List; //결과를 저장하기 위한 인터페이스

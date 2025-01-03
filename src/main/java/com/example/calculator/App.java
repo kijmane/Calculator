@@ -1,4 +1,4 @@
-////Lv.2
+/// /Lv.2
 //package com.example.calculator;
 //import java.util.Scanner;
 //public class App {
@@ -47,19 +47,24 @@
 
 //Lv.3 + 계산기 히스토리 조회 기능 추가 (마지막 계산 결과 불러오기)
 package com.example.calculator;
+
 import java.util.Scanner;
 import java.util.List;
+
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
-        double result1 = calculator.calculate(10,20, OperatorType.ADD);
+        //초기 계산
+        double result1 = calculator.calculate(10, 20, OperatorType.ADD);
         calculator.storeResult(result1);
-        double result2 = calculator.calculate(30,5, OperatorType.SUBTRACT);
+        //첫번째 계산 결과와 히스토리 출력
+        double result2 = calculator.calculate(30, 5, OperatorType.SUBTRACT);
         calculator.storeResult(result2);
         Double firstResult = calculator.getResultAt(0);
         System.out.println("첫번째 계산 결과: " + firstResult);
         System.out.println("계산 히스토리: " + calculator.getResults());
+        //연산자 매핑
         while (true) {
             System.out.print("첫번째 숫자를 입력해주세요. : ");
             double num1 = sc.nextDouble();
@@ -76,28 +81,31 @@ public class App {
                     operator = OperatorType.SUBTRACT;
                     break;
                 case '*':
-                    operator =  OperatorType.MULTIPLY;
+                    operator = OperatorType.MULTIPLY;
                     break;
                 case '/':
-                    operator =  OperatorType.DIVIDE;
+                    operator = OperatorType.DIVIDE;
                     break;
                 default:
                     System.out.println("유효하지 않은 연산자 입니다. 다시 입력해주세요.");
                     continue; //잘못된 연산자는 다시 입력받기
             }
+            //계산 수행
             double result = calculator.calculate(num1, num2, operator);
             System.out.println("계산 결과 :  " + result);
-
+            //계산 결과 저
             calculator.storeResult(result);
-
-            System.out.println("계산된 결과: " + calculator.getResults());
-            System.out.println("입력한 값보다 큰 계산 결과들 : "+ calculator.getResultsGreaterThan(10));
+            //계산 히스토리 출력
+            System.out.println("마지막 계산 결과 : " + calculator.getLastResult());
+            //전체 계산 히스토리 출력
+            calculator.printHistory();
+            //계속할지 여부 확인
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료됩니다.) : ");
             String continueInput = sc.next();
-            if(continueInput.equalsIgnoreCase("exit")) {
-                break;
+            if (continueInput.equalsIgnoreCase("exit")) {
+                break; //"exit" 입력 시 종료됨
             }
-            sc.close();
+            sc.close(); //While문이 종료된 후 닫힘
         }
     }
 }

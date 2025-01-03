@@ -1,9 +1,10 @@
 //Lv.3 + 계산기 히스토리 조회 기능 추가 (마지막 계산 결과 불러오기)
 package com.example.calculator;
+
 public enum OperatorType {
     ADD {
         @Override
-        public double apply(double num1,double num2) {
+        public double apply(double num1, double num2) {
             return num1 + num2;
         }
     },
@@ -28,5 +29,6 @@ public enum OperatorType {
             return num1 / num2;
         }
     };
+
     public abstract double apply(double num1, double num2);
 }
